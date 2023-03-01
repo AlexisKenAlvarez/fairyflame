@@ -87,7 +87,7 @@ const App = () => {
 
                 <div className="max-w-[1500px] mx-auto text-white w-fit h-fit self-end mb-8">
                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 100 }} transition={{ duration: 1.5, ease: [.29, .95, .69, .98] }} className="flex lg:w-[33rem] md:w-[22rem] w-[16.5rem] mx-auto 2xl:w-[59rem] relative">
-                        <img src="/fly.gif" alt="Fly" className="absolute z-10 transform -scale-x-100 w-20 -top-11 -left-11" />
+                        <img src="/fly.gif" alt="Fly" className="absolute z-10 transform -scale-x-100 w-20 -top-11 -left-11 pointer-events-none" />
                         {letters.map((items, i) => {
                             return (
                                 <h1 className={`text-center cursor-crosshair 2xl:text-9xl lg:text-7xl md:text-5xl text-4xl font-albertus tracking-widest transition-all ease-in-out duration-300 hover:text-[#f76966] ${wordArr.includes(items) ? "glow " : "text-[#f76966]"}`} key={i}>{items}</h1>
