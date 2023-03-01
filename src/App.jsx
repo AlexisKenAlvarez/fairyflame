@@ -107,8 +107,8 @@ const App = () => {
             <motion.div variants={mouseVariant} animate="default" className="h-8 w-8 bg-mypink pointer-events-none opacity-60 rounded-full absolute top-0 left-0 z-50 shadow-pinkglow"></motion.div>
 
             <div className='fixed top-0 left-0 w-full h-full bg-[rgba(15,15,15,0.40)] z-[9]'></div>
-            <AnimatePresence>
-                {vid === true ? <motion.video initial={{ opacity: 0 }} animate={{ opacity: 100 }} exit={{opacity: 0}} transition={{ duration: 1 }} src={video} autoPlay loop muted className='w-full object-cover h-full z-0 absolute top-0 left-0' key="firstvideo"></motion.video>
+            <AnimatePresence mode="wait">
+                {vid === true ? <motion.video initial={{ opacity: 0 }} animate={{ opacity: 100 }} exit={{opacity: 0}} transition={{ duration: 0.6 }} src={video} autoPlay loop muted className='w-full object-cover h-full z-0 absolute top-0 left-0' key="firstvideo"></motion.video>
                     :
                    <motion.video initial={{ opacity: 0 }} animate={{ opacity: 100 }} exit={{opacity: 0}} transition={{ duration: 1 }} src={video2} autoPlay loop muted className='w-full object-cover h-full z-0 absolute top-0 left-0' key="secondvideo"></motion.video> 
                 }
