@@ -3,7 +3,7 @@ import video from './assets/video.mp4'
 import { genRandom } from '../utils/genRandom'
 import { motion } from 'framer-motion'
 import { AiOutlineTwitter } from 'react-icons/ai'
-import { FaTelegramPlane } from 'react-icons/Fa'
+import { FaTelegramPlane } from 'react-icons/fa'
 
 const App = () => {
 
