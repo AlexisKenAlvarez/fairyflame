@@ -61,7 +61,7 @@ const App = () => {
     }
 
     return (
-        <section className='w-full h-screen relative overflow-hidden'>
+        <section className='w-full h-screen relative overflow-hidden bg-black'>
             <div className='absolute top-0 left-0 w-full h-full bg-[rgba(15,15,15,0.40)] z-[9]'></div>
             <video src={video} autoPlay loop muted className='w-full object-cover h-full z-0 absolute top-0 left-0' ></video>
 
@@ -83,7 +83,7 @@ const App = () => {
                     </button>
                 </nav>
 
-                <div className="w-full h-full z-10 absolute pointer-events-none shadow-bot"></div>
+                {/* <div className="w-full h-full z-10 absolute pointer-events-none shadow-bot bg-black"></div> */}
 
                 <div className="max-w-[1500px] mx-auto text-white w-fit h-fit self-end mb-8">
                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 100 }} transition={{ duration: 1.5, ease: [.29, .95, .69, .98] }} className="flex lg:w-[33rem] md:w-[22rem] w-[16.5rem] mx-auto 2xl:w-[59rem] relative">
