@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import video from './assets/video.mp4'
 import { genRandom } from '../utils/genRandom'
 import { motion } from 'framer-motion'
-import { AiOutlineTwitter } from 'react-icons/ai'
-import { FaTelegramPlane } from 'react-icons/fa'
+import { AiFillTwitterCircle } from 'react-icons/ai'
+import { BsTelegram } from 'react-icons/bs'
 
 const App = () => {
 
@@ -69,13 +69,13 @@ const App = () => {
                 <nav className="absolute top-0 left-0 flex  justify-between w-full items-center">
 
 
-                    <div className="text-white text-2xl flex items-center gap-x-3 mt-5">
-                        <img src="/logo.webp" alt="Logo" className="w-24 ml-5" />
-                        <AiOutlineTwitter className='hover:drop-shadow-glowi hover:text-mypink transition-all ease-in-out duration-300 cursor-pointer'/>
-                        <FaTelegramPlane className='hover:drop-shadow-glowi hover:text-mypink transition-all ease-in-out duration-300 cursor-pointer' />
+                    <div className="text-white text-2xl flex items-center flex-col justify-center gap-x-3 mt-5 ml-5 gap-y-5">
+                        <img src="/logo.webp" alt="Logo" className="w-24" />
+                        <AiFillTwitterCircle className='text-[28px]  hover:drop-shadow-glowi hover:text-mypink transition-all ease-in-out duration-300 cursor-pointer' />
+                        <BsTelegram className='hover:drop-shadow-glowi hover:text-mypink transition-all ease-in-out duration-300 cursor-pointer'/>
                     </div>
 
-                    <button className="px-8 py-3  text-white font-albertus mr-8 rounded-lg relative group">
+                    <button className="px-8 py-3  text-white font-albertus mr-8 rounded-lg group absolute top-9 right-0">
                         <p className="mb-2">
                             Get Started
                         </p>
