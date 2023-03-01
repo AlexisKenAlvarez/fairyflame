@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  cursor: none;
+}
+
 @font-face {
   font-family: "Albertus";
   src: url("../fonts/AlbertusNova.ttf");

@@ -60,9 +60,47 @@ const App = () => {
         }
     }
 
+    const [mousePosition, setMousePosition] = useState({
+        x: 0,
+        y: 0
+    })
+
+    const mouseVariant = {
+        default: {
+            x: mousePosition.x - 14,
+            y: mousePosition.y - 14,
+            transition: {
+
+                duration: 0.03
+            }
+        }
+    }
+
+    useEffect(() => {
+
+        const mouseMove = (e) => {
+
+            setMousePosition({
+                x: e.clientX,
+                y: e.clientY
+            })
+        }
+
+        window.addEventListener("mousemove", mouseMove)
+
+        return () => {
+            window.removeEventListener("mousemove", mouseMove)
+
+        }
+    }, [])
+
+
     return (
         <section className='w-full h-screen relative overflow-hidden bg-black'>
-            <div className='absolute top-0 left-0 w-full h-full bg-[rgba(15,15,15,0.40)] z-[9]'></div>
+
+            <motion.div variants={mouseVariant} animate="default" className="h-8 w-8 bg-mypink pointer-events-none opacity-60 rounded-full absolute top-0 left-0 z-50 shadow-pinkglow"></motion.div>
+
+            <div className='fixed top-0 left-0 w-full h-full bg-[rgba(15,15,15,0.40)] z-[9]'></div>
             <video src={video} autoPlay loop muted className='w-full object-cover h-full z-0 absolute top-0 left-0' ></video>
 
             <div className="absolute z-20 h-full top-0 left-0 w-full flex">
@@ -71,8 +109,8 @@ const App = () => {
 
                     <div className="text-white text-2xl flex items-center flex-col justify-center gap-x-3 mt-5 ml-5 gap-y-5">
                         <img src="/logo.webp" alt="Logo" className="w-24" />
-                        <AiFillTwitterCircle className='text-[28px]  hover:drop-shadow-glowi hover:text-mypink transition-all ease-in-out duration-300 cursor-pointer' />
-                        <BsTelegram className='hover:drop-shadow-glowi hover:text-mypink transition-all ease-in-out duration-300 cursor-pointer'/>
+                        <AiFillTwitterCircle className='text-[28px]  hover:drop-shadow-glowi hover:text-mypink transition-all ease-in-out duration-300' />
+                        <BsTelegram className='hover:drop-shadow-glowi hover:text-mypink transition-all ease-in-out duration-300r' />
                     </div>
 
                     <button className="px-8 py-3  text-white font-albertus mr-8 rounded-lg group absolute top-9 right-0">
@@ -90,7 +128,7 @@ const App = () => {
                         <img src="/fly.gif" alt="Fly" className="absolute z-10 transform -scale-x-100 w-20 -top-11 -left-11 pointer-events-none" />
                         {letters.map((items, i) => {
                             return (
-                                <h1 className={`text-center cursor-crosshair 2xl:text-9xl lg:text-7xl md:text-5xl text-4xl font-albertus tracking-widest transition-all ease-in-out duration-300 hover:text-[#f76966] ${wordArr.includes(items) ? "glow " : "text-[#f76966]"}`} key={i}>{items}</h1>
+                                <h1 className={`text-center 2xl:text-9xl lg:text-7xl md:text-5xl text-4xl font-albertus tracking-widest transition-all ease-in-out duration-300 hover:text-[#f76966] ${wordArr.includes(items) ? "glow " : "text-[#f76966]"}`} key={i}>{items}</h1>
                             )
                         })}
                     </motion.div>
