@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import video from './assets/video.mp4'
+import video2 from './assets/video2.mp4'
 import { genRandom } from '../utils/genRandom'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { AiFillTwitterCircle } from 'react-icons/ai'
 import { BsTelegram } from 'react-icons/bs'
 
@@ -94,6 +95,11 @@ const App = () => {
         }
     }, [])
 
+    const [vid, setVideo] = useState(true)
+
+    const toggle = () => {
+        setVideo(curr => !curr)
+    }
 
     return (
         <section className='w-full h-screen relative overflow-hidden bg-black'>
@@ -101,7 +107,13 @@ const App = () => {
             <motion.div variants={mouseVariant} animate="default" className="h-8 w-8 bg-mypink pointer-events-none opacity-60 rounded-full absolute top-0 left-0 z-50 shadow-pinkglow"></motion.div>
 
             <div className='fixed top-0 left-0 w-full h-full bg-[rgba(15,15,15,0.40)] z-[9]'></div>
-            <video src={video} autoPlay loop muted className='w-full object-cover h-full z-0 absolute top-0 left-0' ></video>
+            <AnimatePresence>
+                {vid === true ? <motion.video initial={{ opacity: 0 }} animate={{ opacity: 100 }} exit={{opacity: 0}} transition={{ duration: 1 }} src={video} autoPlay loop muted className='w-full object-cover h-full z-0 absolute top-0 left-0' key="firstvideo"></motion.video>
+                    :
+                   <motion.video initial={{ opacity: 0 }} animate={{ opacity: 100 }} exit={{opacity: 0}} transition={{ duration: 1 }} src={video2} autoPlay loop muted className='w-full object-cover h-full z-0 absolute top-0 left-0' key="secondvideo"></motion.video> 
+                }
+
+            </AnimatePresence>
 
             <div className="absolute z-20 h-full top-0 left-0 w-full flex">
                 <nav className="absolute top-0 left-0 flex  justify-between w-full items-center">
@@ -113,11 +125,26 @@ const App = () => {
                         <BsTelegram className='hover:drop-shadow-glowi hover:text-mypink transition-all ease-in-out duration-300r' />
                     </div>
 
+                    <button className="px-8 py-3  text-white font-albertus rounded-lg group absolute top-9 right-0 left-0 mx-auto w-fit" onClick={toggle}>
+                        <p className="mb-2">
+                            Switch
+                        </p>
+                        <div className="w-6 h-[7px] relative mx-auto group-hover:w-full transition-all ease-in-out duration-300">
+                            <div className="w-2 h-2 bg-mypink rounded-full absolute right-0 top-0 bottom-0"></div>
+                            <div className="w-full h-[2px] bg-mypink rounded-full absolute left-0 top-0 bottom-0 my-auto transition-all ease-in-out duration-300 group-hover:shadow-pinkglow"></div>
+                            <div className="w-2 h-2 bg-mypink rounded-full absolute left-0 top-0 bottom-0"></div>
+                        </div>
+                    </button>
+
                     <button className="px-8 py-3  text-white font-albertus mr-8 rounded-lg group absolute top-9 right-0">
                         <p className="mb-2">
                             Get Started
                         </p>
-                        <div className="w-full h-[5px] bg-mypink  transition-all ease-in-out duration-300 group-hover:shadow-pinkglow"></div>
+                        <div className="w-8 h-[7px] relative mx-auto group-hover:w-full transition-all ease-in-out duration-300">
+                            <div className="w-2 h-2 bg-mypink rounded-full absolute right-0 top-0 bottom-0"></div>
+                            <div className="w-full h-[2px] bg-mypink rounded-full absolute left-0 top-0 bottom-0 my-auto transition-all ease-in-out duration-300 group-hover:shadow-pinkglow"></div>
+                            <div className="w-2 h-2 bg-mypink rounded-full absolute left-0 top-0 bottom-0"></div>
+                        </div>
                     </button>
                 </nav>
 
