@@ -83,7 +83,7 @@ const App = () => {
                     </button>
                 </nav>
 
-                {/* <div className="w-full h-full z-10 absolute pointer-events-none shadow-bot bg-black"></div> */}
+                <div className="w-full h-full z-10 absolute pointer-events-none shadow-bot"></div>
 
                 <div className="max-w-[1500px] mx-auto text-white w-fit h-fit self-end mb-8">
                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 100 }} transition={{ duration: 1.5, ease: [.29, .95, .69, .98] }} className="flex lg:w-[33rem] md:w-[22rem] w-[16.5rem] mx-auto 2xl:w-[59rem] relative">
